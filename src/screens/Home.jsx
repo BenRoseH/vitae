@@ -1,4 +1,5 @@
-import { Star, Trophy, Signal, Wifi, BatteryFull } from 'lucide-react'
+import { Trophy, Signal, Wifi, BatteryFull, Star } from 'lucide-react'
+import ChallengeCard from '../components/ChallengeCard'
 import './Home.css'
 
 export default function HomeScreen() {
@@ -11,16 +12,8 @@ export default function HomeScreen() {
       </div>
 
       {/* Quest card — au-dessus de l'avatar */}
-      <div className="quest-sheet glass">
-        <div className="qs-title">ENDURANCE</div>
-        <div className="qs-desc">Marche 30 minutes par jour<br />pendant 1 semaine</div>
-        <div className="qs-footer">
-          <div className="pts-badge">
-            <Star size={16} color="#1A1A1A" />
-            112
-          </div>
-          <div className="go-btn">GO</div>
-        </div>
+      <div className="quest-sheet">
+        <ChallengeCard />
       </div>
 
       {/* UI overlay */}
