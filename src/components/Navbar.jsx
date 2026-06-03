@@ -6,7 +6,7 @@ const TABS = [
   { path: '/',      icon: Home,     label: 'Home' },
   { path: '/test',  icon: Wallet,   label: null },
   { path: '/quetes',icon: PieChart, label: null },
-  { path: '/profil',icon: User,     label: null },
+  { path: '/character', icon: User, label: null },
 ]
 
 export default function Navbar() {

@@ -7,6 +7,8 @@ import HomeScreen from './screens/Home'
 import './screens/Home.css'
 import TestScreen from './screens/TestScreen'
 import './screens/TestScreen.css'
+import CharacterScreen from './screens/CharacterScreen'
+import './screens/CharacterScreen.css'
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/test" element={<TestScreen />} />
+          <Route path="/character" element={<CharacterScreen />} />
         </Routes>
         <Navbar />
       </Phone>
