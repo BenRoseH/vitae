@@ -160,6 +160,16 @@
   cursor: not-allowed;
 }
 
+.csc-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.csc-btn--minus {
+  background: rgba(0,0,0,0.08);
+  color: #555;
+}
+
 /* ── Accessories ────────────────────────── */
 
 .char-accessories {

@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { Star, Activity, Flame, Zap, Shield, Leaf, Plus } from 'lucide-react'
+import { Star, Activity, Flame, Zap, Shield, Leaf, Plus, Minus } from 'lucide-react'
 import './CharacterScreen.css'
 
 const INITIAL_STATS = [
-  { name: 'Endurance', icon: Activity, level: 3, max: 10, cost: 80,  color: '#FF4309' },
-  { name: 'Force',     icon: Flame,    level: 2, max: 10, cost: 100, color: '#7C3AED' },
-  { name: 'Vitesse',   icon: Zap,      level: 4, max: 10, cost: 60,  color: '#0EA5E9' },
-  { name: 'Mental',    icon: Shield,   level: 1, max: 10, cost: 120, color: '#16A34A' },
-  { name: 'Nutrition', icon: Leaf,     level: 2, max: 10, cost: 90,  color: '#D97706' },
+  { name: 'Endurance', icon: Activity, level: 3, baseLevel: 3, max: 10, cost: 80,  color: '#FF4309' },
+  { name: 'Force',     icon: Flame,    level: 2, baseLevel: 2, max: 10, cost: 100, color: '#7C3AED' },
+  { name: 'Vitesse',   icon: Zap,      level: 4, baseLevel: 4, max: 10, cost: 60,  color: '#0EA5E9' },
+  { name: 'Mental',    icon: Shield,   level: 1, baseLevel: 1, max: 10, cost: 120, color: '#16A34A' },
+  { name: 'Nutrition', icon: Leaf,     level: 2, baseLevel: 2, max: 10, cost: 90,  color: '#D97706' },
 ]
 
 const ACCESSORIES = [
@@ -30,6 +30,13 @@ export default function CharacterScreen() {
     setStats(prev => prev.map(s => s.name === name ? { ...s, level: s.level + 1 } : s))
   }
 
+  function downgrade(name) {
+    const stat = stats.find(s => s.name === name)
+    if (!stat || stat.level <= stat.baseLevel) return
+    setPoints(p => p + stat.cost)
+    setStats(prev => prev.map(s => s.name === name ? { ...s, level: s.level - 1 } : s))
+  }
+
   return (
     <div className="char-screen">
 
@@ -47,8 +54,9 @@ export default function CharacterScreen() {
 
       <div className="char-section-label">Aptitudes</div>
       <div className="char-stats">
-        {stats.map(({ name, icon: Icon, level, max, cost, color }) => {
+        {stats.map(({ name, icon: Icon, level, baseLevel, max, cost, color }) => {
           const canUpgrade = points >= cost && level < max
+          const canDowngrade = level > baseLevel
           return (
             <div key={name} className="glass char-stat-card">
               <div className="csc-icon" style={{ '--stat-color': color }}>
@@ -65,13 +73,20 @@ export default function CharacterScreen() {
               </div>
               <div className="csc-upgrade">
                 <span className="csc-cost"><Star size={10} />{cost}</span>
-                <button
-                  className={`csc-btn${!canUpgrade ? ' csc-btn--disabled' : ''}`}
-                  onClick={() => upgrade(name)}
-                  disabled={!canUpgrade}
-                >
-                  <Plus size={14} />
-                </button>
+                <div className="csc-btns">
+                  {canDowngrade && (
+                    <button className="csc-btn csc-btn--minus" onClick={() => downgrade(name)}>
+                      <Minus size={14} />
+                    </button>
+                  )}
+                  <button
+                    className={`csc-btn${!canUpgrade ? ' csc-btn--disabled' : ''}`}
+                    onClick={() => upgrade(name)}
+                    disabled={!canUpgrade}
+                  >
+                    <Plus size={14} />
+                  </button>
+                </div>
               </div>
             </div>
           )
