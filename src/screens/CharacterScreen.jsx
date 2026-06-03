@@ -69,7 +69,6 @@ export default function CharacterScreen() {
           className="char-avatar"
           src="/perso-animation.mp4"
           autoPlay
-          loop
           muted
           playsInline
         />

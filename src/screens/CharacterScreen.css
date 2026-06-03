@@ -43,9 +43,7 @@
   width: auto;
   object-fit: contain;
   object-position: center bottom;
-  filter:
-    drop-shadow(0 16px 40px rgba(255, 50, 10, 0.30))
-    drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+  mix-blend-mode: multiply;
 }
 
 .char-section-label {
