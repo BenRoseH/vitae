@@ -17,9 +17,7 @@
   width: auto;
   object-fit: contain;
   object-position: center bottom;
-  filter:
-    drop-shadow(0 24px 48px rgba(255, 50, 10, 0.32))
-    drop-shadow(0 4px 16px rgba(0,0,0,0.45));
+  mix-blend-mode: multiply;
 }
 
 .quest-sheet {

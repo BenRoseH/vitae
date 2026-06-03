@@ -1,14 +1,27 @@
+import { useEffect, useRef } from 'react'
 import { Trophy, Signal, Wifi, BatteryFull, Star } from 'lucide-react'
 import ChallengeCard from '../components/ChallengeCard'
 import './Home.css'
 
 export default function HomeScreen() {
+  const videoRef = useRef(null)
+  useEffect(() => {
+    if (videoRef.current) videoRef.current.playbackRate = 1.5
+  }, [])
 
   return (
     <>
       {/* Avatar */}
       <div className="avatar-layer">
-        <img className="avatar-img" src="/vitae-avatar.png" alt="Avatar VITAE" />
+        <video
+          ref={videoRef}
+          className="avatar-img"
+          src="/perso-animation.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
       </div>
 
       {/* Quest card — au-dessus de l'avatar */}
