@@ -170,41 +170,95 @@
   color: #555;
 }
 
-/* ── Accessories ────────────────────────── */
+/* ── Tabs ───────────────────────────────── */
 
-.char-accessories {
+.char-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 16px 18px 4px;
+}
+
+.char-tab {
+  border: none;
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  background: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.6);
+  transition: background 0.15s, color 0.15s;
+}
+
+.char-tab--active {
+  background: var(--orange);
+  color: #fff;
+}
+
+/* ── Vestiaire ──────────────────────────── */
+
+.char-vestiaire {
+  padding: 0 0 8px;
+}
+
+.vest-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   padding: 0 18px;
 }
 
-.char-acc-slot {
+.vest-card {
   border-radius: 18px;
-  padding: 16px 12px;
+  padding: 14px 14px 12px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 8px;
   cursor: pointer;
 }
 
-.acc-dot {
+.vest-card--owned {
+  border-color: rgba(255,67,9,0.4);
+}
+
+.vest-icon {
   width: 36px;
   height: 36px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vest-owned-dot {
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.08);
-  border: 2px dashed rgba(0,0,0,0.15);
-}
-
-.char-acc--equipped .acc-dot {
   background: var(--orange);
-  border: 2px solid var(--orange);
 }
 
-.acc-label {
+.vest-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1A1A1A;
+  line-height: 1.2;
+}
+
+.vest-cost {
+  display: flex;
+  align-items: center;
+  gap: 3px;
   font-size: 11px;
-  font-weight: 600;
-  color: #555;
-  text-align: center;
+  font-weight: 700;
+  color: #888;
+}
+
+.vest-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
