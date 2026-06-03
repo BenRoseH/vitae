@@ -154,6 +154,12 @@
   cursor: pointer;
 }
 
+.csc-btn--disabled {
+  background: rgba(0,0,0,0.15);
+  color: rgba(0,0,0,0.3);
+  cursor: not-allowed;
+}
+
 /* ── Accessories ────────────────────────── */
 
 .char-accessories {

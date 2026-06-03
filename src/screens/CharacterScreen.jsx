@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import { Star, Activity, Flame, Zap, Shield, Leaf, Plus } from 'lucide-react'
 import './CharacterScreen.css'
 
-const STATS = [
+const INITIAL_STATS = [
   { name: 'Endurance', icon: Activity, level: 3, max: 10, cost: 80,  color: '#FF4309' },
   { name: 'Force',     icon: Flame,    level: 2, max: 10, cost: 100, color: '#7C3AED' },
   { name: 'Vitesse',   icon: Zap,      level: 4, max: 10, cost: 60,  color: '#0EA5E9' },
@@ -19,6 +20,16 @@ const ACCESSORIES = [
 ]
 
 export default function CharacterScreen() {
+  const [points, setPoints] = useState(242)
+  const [stats, setStats] = useState(INITIAL_STATS)
+
+  function upgrade(name) {
+    const stat = stats.find(s => s.name === name)
+    if (!stat || stat.level >= stat.max || points < stat.cost) return
+    setPoints(p => p - stat.cost)
+    setStats(prev => prev.map(s => s.name === name ? { ...s, level: s.level + 1 } : s))
+  }
+
   return (
     <div className="char-screen">
 
@@ -26,7 +37,7 @@ export default function CharacterScreen() {
         <h1 className="char-title">Mon Perso</h1>
         <div className="char-pts glass">
           <Star size={13} />
-          8 420 pts
+          {points.toLocaleString('fr-FR')} pts
         </div>
       </div>
 
@@ -36,26 +47,35 @@ export default function CharacterScreen() {
 
       <div className="char-section-label">Aptitudes</div>
       <div className="char-stats">
-        {STATS.map(({ name, icon: Icon, level, max, cost, color }) => (
-          <div key={name} className="glass char-stat-card">
-            <div className="csc-icon" style={{ '--stat-color': color }}>
-              <Icon size={18} />
-            </div>
-            <div className="csc-body">
-              <div className="csc-top">
-                <span className="csc-name">{name}</span>
-                <span className="csc-level">Niv. {level}</span>
+        {stats.map(({ name, icon: Icon, level, max, cost, color }) => {
+          const canUpgrade = points >= cost && level < max
+          return (
+            <div key={name} className="glass char-stat-card">
+              <div className="csc-icon" style={{ '--stat-color': color }}>
+                <Icon size={18} />
               </div>
-              <div className="csc-bar">
-                <div className="csc-fill" style={{ width: `${(level / max) * 100}%`, background: color }} />
+              <div className="csc-body">
+                <div className="csc-top">
+                  <span className="csc-name">{name}</span>
+                  <span className="csc-level">Niv. {level}</span>
+                </div>
+                <div className="csc-bar">
+                  <div className="csc-fill" style={{ width: `${(level / max) * 100}%`, background: color }} />
+                </div>
+              </div>
+              <div className="csc-upgrade">
+                <span className="csc-cost"><Star size={10} />{cost}</span>
+                <button
+                  className={`csc-btn${!canUpgrade ? ' csc-btn--disabled' : ''}`}
+                  onClick={() => upgrade(name)}
+                  disabled={!canUpgrade}
+                >
+                  <Plus size={14} />
+                </button>
               </div>
             </div>
-            <div className="csc-upgrade">
-              <span className="csc-cost"><Star size={10} />{cost}</span>
-              <button className="csc-btn"><Plus size={14} /></button>
-            </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       <div className="char-section-label">Accessoires</div>
