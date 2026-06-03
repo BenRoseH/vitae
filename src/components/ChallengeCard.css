@@ -48,26 +48,20 @@
   gap: 10px;
 }
 
-.cc-pts {
+.cc-meta {
   display: flex;
   align-items: center;
-  gap: 5px;
-  background: #FFD700;
-  border-radius: 30px;
-  padding: 7px 14px;
-  font-size: 14px;
-  font-weight: 800;
-  color: #1A1A1A;
+  gap: 14px;
+  flex: 1;
 }
 
-.cc-duration {
+.cc-meta-item {
   display: flex;
   align-items: center;
   gap: 5px;
   font-size: 13px;
   font-weight: 600;
   color: #666;
-  flex: 1;
 }
 
 .cc-cta {

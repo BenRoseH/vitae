@@ -22,13 +22,15 @@ export default function ChallengeCard({
       </div>
 
       <div className="cc-footer">
-        <div className="cc-pts">
-          <Star size={14} color="#1A1A1A" />
-          {points} pts
-        </div>
-        <div className="cc-duration">
-          <Clock size={13} />
-          {duration}
+        <div className="cc-meta">
+          <div className="cc-meta-item">
+            <Star size={13} />
+            {points} pts
+          </div>
+          <div className="cc-meta-item">
+            <Clock size={13} />
+            {duration}
+          </div>
         </div>
         <div className="cc-cta">Rejoindre</div>
       </div>
