@@ -1,0 +1,39 @@
+.phone {
+  width: 390px;
+  height: 844px;
+  border-radius: 54px;
+  overflow: clip;
+  position: relative;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08),
+    0 40px 100px rgba(0,0,0,0.6),
+    0 8px 24px rgba(0,0,0,0.4);
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-vignette {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.28);
+  border-radius: 54px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass {
+  background: rgba(255,255,255,0.25);
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255,255,255,0.70);
+  box-shadow:
+    inset 0 1.5px 0 rgba(255,255,255,0.85),
+    0 4px 24px rgba(0,0,0,0.18);
+}
