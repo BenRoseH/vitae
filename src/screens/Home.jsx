@@ -18,7 +18,6 @@ export default function HomeScreen() {
           className="avatar-img"
           src="/perso-animation.mp4"
           autoPlay
-          loop
           muted
           playsInline
         />
