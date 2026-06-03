@@ -2,7 +2,6 @@ import { Star, Trophy, Signal, Wifi, BatteryFull } from 'lucide-react'
 import './Home.css'
 
 export default function HomeScreen() {
-  const navigate = useNavigate()
 
   return (
     <>
