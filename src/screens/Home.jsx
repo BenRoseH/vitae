@@ -1,6 +1,5 @@
 import { Star, Trophy, Signal, Wifi, BatteryFull, Home, Wallet, PieChart, User } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import ChallengeCard from '../components/ChallengeCard'
 import './Home.css'
 
 export default function HomeScreen() {
@@ -58,18 +57,13 @@ export default function HomeScreen() {
 
         <div className="spacer" />
 
-        {/* Challenge card test */}
-        <div style={{ padding: '0 16px 12px' }}>
-          <ChallengeCard />
-        </div>
-
         {/* Bottom nav */}
         <div className="bnav glass">
           <div className="nav-pill">
             <Home size={18} />
             Home
           </div>
-          <div className="nav-ico" onClick={() => navigate('/dressing')}><Wallet size={22} /></div>
+          <div className="nav-ico" onClick={() => navigate('/test')}><Wallet size={22} /></div>
           <div className="nav-ico" onClick={() => navigate('/quetes')}><PieChart size={22} /></div>
           <div className="nav-ico" onClick={() => navigate('/profil')}><User size={22} /></div>
         </div>
