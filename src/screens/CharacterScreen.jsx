@@ -65,7 +65,14 @@ export default function CharacterScreen() {
       </div>
 
       <div className="char-avatar-wrap">
-        <img src="/vitae-avatar.png" alt="Avatar" className="char-avatar" />
+        <video
+          className="char-avatar"
+          src="/perso-animation.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
       </div>
 
       <div className="char-tabs">
