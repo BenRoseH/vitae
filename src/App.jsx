@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Phone from './components/Phone'
 import './components/Phone.css'
+import Navbar from './components/Navbar'
+import './components/Navbar.css'
 import HomeScreen from './screens/Home'
 import './screens/Home.css'
 import TestScreen from './screens/TestScreen'
@@ -14,6 +16,7 @@ function App() {
           <Route path="/" element={<HomeScreen />} />
           <Route path="/test" element={<TestScreen />} />
         </Routes>
+        <Navbar />
       </Phone>
     </BrowserRouter>
   )

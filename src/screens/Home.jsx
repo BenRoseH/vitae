@@ -1,5 +1,4 @@
-import { Star, Trophy, Signal, Wifi, BatteryFull, Home, Wallet, PieChart, User } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { Star, Trophy, Signal, Wifi, BatteryFull } from 'lucide-react'
 import './Home.css'
 
 export default function HomeScreen() {
@@ -56,17 +55,6 @@ export default function HomeScreen() {
         </div>
 
         <div className="spacer" />
-
-        {/* Bottom nav */}
-        <div className="bnav glass">
-          <div className="nav-pill">
-            <Home size={18} />
-            Home
-          </div>
-          <div className="nav-ico" onClick={() => navigate('/test')}><Wallet size={22} /></div>
-          <div className="nav-ico" onClick={() => navigate('/quetes')}><PieChart size={22} /></div>
-          <div className="nav-ico" onClick={() => navigate('/profil')}><User size={22} /></div>
-        </div>
       </div>
     </>
   )
