@@ -1,11 +1,11 @@
-import { Home, Wallet, PieChart, User } from 'lucide-react'
+import { Home, Wallet, Swords, User } from 'lucide-react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import './Navbar.css'
 
 const TABS = [
   { path: '/',      icon: Home,     label: 'Home' },
   { path: '/test',  icon: Wallet,   label: null },
-  { path: '/raids',  icon: PieChart, label: null },
+  { path: '/raids',  icon: Swords, label: null },
   { path: '/character', icon: User, label: null },
 ]
 
