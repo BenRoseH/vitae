@@ -1,0 +1,24 @@
+.raid-test {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  background: var(--bg-app);
+  padding-bottom: 120px;
+}
+
+.raid-test-header {
+  padding: 52px 16px 16px;
+}
+
+.raid-test-title {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--white);
+}
+
+.raid-test-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 16px;
+}

@@ -6,6 +6,24 @@
   --orange: #FF4309;
   --black:  #0A0A0A;
   --white:  #FFFFFF;
+
+  --yellow: #FFD102;
+  --blue:   #0060FD;
+  --red:    #FF4309;
+  --pink:   #FEB2E2;
+  --green:  #009A1E;
+
+  --grey-100: #DDDDDF;
+  --grey-200: #C8C8CA;
+  --grey-300: #ADADAF;
+  --grey-400: #929294;
+  --grey-500: #6E6E70;
+  --grey-600: #4A4A4C;
+  --grey-700: #111113;
+
+  --bg-app:      #0A0A0F;
+  --bg-surface:  #12121A;
+  --bg-elevated: #1C1C28;
 }
 
 body {

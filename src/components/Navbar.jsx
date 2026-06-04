@@ -5,7 +5,7 @@ import './Navbar.css'
 const TABS = [
   { path: '/',      icon: Home,     label: 'Home' },
   { path: '/test',  icon: Wallet,   label: null },
-  { path: '/quetes',icon: PieChart, label: null },
+  { path: '/raids',  icon: PieChart, label: null },
   { path: '/character', icon: User, label: null },
 ]
 
